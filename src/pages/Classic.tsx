@@ -1,5 +1,5 @@
 import React from "react";
-import { MessageCircle, TrendingUp, ChevronRight } from "lucide-react";
+import { MessageCircle, ChevronRight } from "lucide-react";
 
 interface PlanProps {
   duration: string;
@@ -26,6 +26,11 @@ const Plan: React.FC<PlanProps> = ({ duration, price, features }) => {
           </div>
         ))}
       </div>
+
+      <p className="text-blue-200 text-sm mb-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut sem
+        sed ligula cursus fermentum. Donec vel ligula eu nisl consequat sodales.
+      </p>
 
       <div className="mt-auto">
         <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
@@ -104,7 +109,18 @@ function Classic() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {plans.map((plan, index) => (
-            <Plan key={index} {...plan} />
+            <div
+              key={index}
+              className="animate-slide-up"
+              style={{
+                animationDelay: `${index * 600}ms`,
+                opacity: 0,
+                animation: `slide-up ${index * 0.6}s ease forwards`,
+                animationFillMode: "forwards",
+              }}
+            >
+              <Plan {...plan} />
+            </div>
           ))}
         </div>
       </main>

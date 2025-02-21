@@ -45,21 +45,36 @@ const Plan: React.FC<PlanProps> = ({ duration, price, features }) => {
         </div>
       </div>
 
-      {/* Chart Component */}
       <div className="bg-blue-800/50 rounded-lg p-4 mb-6">
         <Chart />
+        <p className="text-blue-200 text-sm mt-4 leading-relaxed">
+          Track your investments with our advanced charting system. Monitor
+          market trends and make informed decisions with real-time data
+          visualization.
+        </p>
       </div>
 
-      <div className="space-y-3 mb-6">
-        {features.map((feature, index) => (
-          <div key={index} className="flex items-center text-blue-100">
-            <ChevronRight className="w-4 h-4 mr-2" />
-            <span>{feature}</span>
-          </div>
-        ))}
+      <div className="space-y-4 mb-6">
+        <div className="text-blue-200 text-sm leading-relaxed mb-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+
+        <div className="space-y-3">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center text-blue-100">
+              <ChevronRight className="w-4 h-4 mr-2 text-blue-400" />
+              <span>{feature}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="mt-auto">
+      <div className="mt-auto space-y-4">
+        <p className="text-blue-200 text-sm italic">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </p>
         <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
           Select Plan
         </button>
@@ -136,7 +151,18 @@ function Proposition() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {plans.map((plan, index) => (
-            <Plan key={index} {...plan} />
+            <div
+              key={index}
+              className="animate-slide-up"
+              style={{
+                animationDelay: `${index * 200}ms`,
+                opacity: 0,
+                animation: "slide-up 0.6s ease forwards",
+                animationFillMode: "forwards",
+              }}
+            >
+              <Plan {...plan} />
+            </div>
           ))}
         </div>
       </main>
