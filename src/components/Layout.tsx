@@ -31,7 +31,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               >
                 Premium Plans
               </Link>
-              <Link
+              {/* <Link
                 to="/resources"
                 className={`text-blue-200 hover:text-white transition-colors ${
                   location.pathname === "/resources" ? "text-white" : ""
@@ -46,7 +46,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 }`}
               >
                 About
-              </Link>
+              </Link> */}
             </nav>
           </div>
         </div>
